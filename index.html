@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>Abhinav Chawla</title>
+        <link rel="stylesheet" href="main.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 left-side">
+                    <div class="scroll-down-text">Hello Peeps
+                    </div>
+                </div>
+                
+                <div class="col-6 right-side">
+                   
+<!--
+                    <div id="message">
+                    Current scroll position: 0
+                    </div>
+-->
+
+                </div>
+            </div>
+        </div>
+        <script>
+            
+            $(document).ready(function(){
+                var scrolltext = $('.scroll-down-text');
+                var originaloff = scrolltext.offset().top;
+                var dheight = $(document).height();
+                var p = $( "p:last" );
+                
+                //runs on scroll
+                $(window).scroll(function() {
+                    var scrolltext = $('.scroll-down-text');
+//                    var iposition = scrolltext.offset().top;
+                    var dheight = $(document).height();
+                    var dif = $(document).height() - $(window).height();
+                    var scrolltop = $(document).scrollTop();
+                    var ratio = scrolltop/dif;
+                    
+                    if (ratio > .02){
+                    scrolltext.css({top: 150*ratio});          
+                    }
+                    else{
+                        scrolltext.css({top:3});
+                    }
+//                    var p = $( "p:last" );
+//                    p.html(" ratio: " + ratio);
+                })
+            })
+        
+//        var p = $( "p:last" );
+//        var offset = p.offset();
+//        var wh = $(window).height(); 
+//        var dh = $(document).height(); 
+//        p.html( "left: " + offset.left + ", top: " + offset.top + "scrollTop:" + p.scrollTop());
+        </script>
+    </body>
+    
