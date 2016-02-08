@@ -6,7 +6,7 @@
         <title>Abhinav Chawla</title>
         <link rel="stylesheet" href="main.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -17,49 +17,59 @@
                 </div>
                 
                 <div class="col-6 right-side">
-                   
-<!--
+                    <p>hell</p>
                     <div id="message">
                     Current scroll position: 0
                     </div>
--->
-
+                     
+                    <input type="button" id="increaseprogress" value="Kiddan vi?"/>
+                    
                 </div>
+                
             </div>
+            <progress id="progressbar" value="40" max="100"></progress>
+           
         </div>
         <script>
             
-            $(document).ready(function(){
-                var scrolltext = $('.scroll-down-text');
-                var originaloff = scrolltext.offset().top;
-                var dheight = $(document).height();
-                var p = $( "p:last" );
-                
-                //runs on scroll
-                $(window).scroll(function() {
-                    var scrolltext = $('.scroll-down-text');
-//                    var iposition = scrolltext.offset().top;
-                    var dheight = $(document).height();
-                    var dif = $(document).height() - $(window).height();
-                    var scrolltop = $(document).scrollTop();
-                    var ratio = scrolltop/dif;
-                    
-                    if (ratio > .02){
-                    scrolltext.css({top: 150*ratio});          
-                    }
-                    else{
-                        scrolltext.css({top:3});
-                    }
-//                    var p = $( "p:last" );
-//                    p.html(" ratio: " + ratio);
-                })
-            })
+           
         
-//        var p = $( "p:last" );
-//        var offset = p.offset();
-//        var wh = $(window).height(); 
-//        var dh = $(document).height(); 
-//        p.html( "left: " + offset.left + ", top: " + offset.top + "scrollTop:" + p.scrollTop());
+            
+        //progress bar increases on button click
+        $('#increaseprogress').click(function(){
+            var p = $("p:last");
+            
+            
+            var bar = $('#progressbar');
+            var presentvalue = bar.val();
+            p.html(presentvalue + '%');
+//            bar.val(60);
+            bar.animate({ value: "+=20" }, 1000);
+//            bar({
+//                value: 87
+//            });
+//            bar.css({value: presentvalue + 20}); 
+        })
+            
+        //runs on scroll, text moves accordingly
+        $(window).scroll(function() {
+            var scrolltext = $('.scroll-down-text');
+            var dheight = $(document).height();
+            var dif = $(document).height() - $(window).height();
+            var scrolltop = $(document).scrollTop();
+            var wh = $(window).height(); 
+            var ratio = scrolltop/dif;
+            var rowh = $('.row').height();
+
+            if (ratio > .02){
+            scrolltext.css({top: wh*ratio/1.05 - 200});          
+            }
+            else{
+                scrolltext.css({top:20});
+            }
+        })
+
+
         </script>
     </body>
     
