@@ -12,22 +12,24 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 left-side">
-                    <div class="scroll-down-text">Hello Peeps
+                    <div class="scroll-down-text">Abhinav Chawla
                     </div>
                 </div>
                 
                 <div class="col-6 right-side">
+<!--
                     <p>hell</p>
                     <div id="message">
                     Current scroll position: 0
                     </div>
+-->
                      
                     <input type="button" id="increaseprogress" value="Kiddan vi?"/>
                     
                 </div>
                 
             </div>
-            <progress id="progressbar" value="40" max="100"></progress>
+            <progress id="progressbar" value="00" max="100"></progress>
            
         </div>
         <script>
@@ -42,32 +44,46 @@
             
             var bar = $('#progressbar');
             var presentvalue = bar.val();
-            p.html(presentvalue + '%');
-//            bar.val(60);
+            
+            //bar.val(60);
             bar.animate({ value: "+=20" }, 1000);
-//            bar({
-//                value: 87
-//            });
-//            bar.css({value: presentvalue + 20}); 
+            
+            var scrolltext = $('.scroll-down-text');
+            var top1 = scrolltext.offset().top;
+            var dif = $(document).height() - $(window).height();
+            var wh = $(window).height(); 
+            p.html(wh + '%');
+            if (top1 + 0.2*wh -5 < wh){
+                scrolltext.animate({top: top1 + 0.2*wh - 8}, 1000);
+            }
+            if (top1 + 0.2*wh -5 > .8*wh){
+                scrolltext.delay(0).queue( function(next){ 
+                    $(this).css({color:'#f2f2f2'}); 
+                    next(); 
+                  });
+                
+//                scrolltext.css({color:'#f2f2f2'});
+            }
+
         })
             
-        //runs on scroll, text moves accordingly
-        $(window).scroll(function() {
-            var scrolltext = $('.scroll-down-text');
-            var dheight = $(document).height();
-            var dif = $(document).height() - $(window).height();
-            var scrolltop = $(document).scrollTop();
-            var wh = $(window).height(); 
-            var ratio = scrolltop/dif;
-            var rowh = $('.row').height();
-
-            if (ratio > .02){
-            scrolltext.css({top: wh*ratio/1.05 - 200});          
-            }
-            else{
-                scrolltext.css({top:20});
-            }
-        })
+//        //runs on scroll, text moves accordingly
+//        $(window).scroll(function() {
+//            var scrolltext = $('.scroll-down-text');
+//            var dheight = $(document).height();
+//            var dif = $(document).height() - $(window).height();
+//            var scrolltop = $(document).scrollTop();
+//            var wh = $(window).height(); 
+//            var ratio = scrolltop/dif;
+//            var rowh = $('.row').height();
+//
+//            if (ratio > .02){
+//            scrolltext.css({top: wh*ratio/1.05 - 200});          
+//            }
+//            else{
+//                scrolltext.css({top:20});
+//            }
+//        })
 
 
         </script>

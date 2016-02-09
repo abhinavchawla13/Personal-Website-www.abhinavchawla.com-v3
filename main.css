@@ -1,6 +1,5 @@
 
 .left-side {
-    background-color:beige;
     height: 100%;
 }
 
@@ -21,7 +20,6 @@ body {
 }
 
 .right-side {
-    background-color:aqua;
     height: 100%;
 }
 
@@ -29,6 +27,7 @@ body {
     content: "";
     clear: both;
     display: block;
+    z-index: 4;
 }
 
 /* For desktop: */
@@ -51,7 +50,6 @@ body {
 
 [class*="col-"] {
     float: left;
-    padding: 15px;
 }
 
 .row {
@@ -66,6 +64,8 @@ body {
 
 .scroll-down-text {
     position: fixed;
+    z-index: 10;
+    padding: 10px;
 }
 
 
@@ -96,4 +96,8 @@ progress::-moz-progress-bar {
     width: 100%;
     position: absolute;
     bottom: 0px;
+}
+
+#increaseprogress {
+    z-index: 2;
 }
