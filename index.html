@@ -5,6 +5,9 @@
         <meta charset="utf-8">
         <title>Abhinav Chawla</title>
         <link rel="stylesheet" href="main.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Slab' rel='stylesheet' type='text/css'>
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     </head>
@@ -17,14 +20,16 @@
                 </div>
                 
                 <div class="col-6 right-side">
+                    <img id="tree_branch" src="Extras/tree_branch.png"/>
+                    <img id="bird" src="Extras/Bird1.png"/>
+<!--                    <p>hell</p>-->
 <!--
-                    <p>hell</p>
                     <div id="message">
                     Current scroll position: 0
                     </div>
 -->
                      
-                    <input type="button" id="increaseprogress" value="Kiddan vi?"/>
+<!--                    <input type="button" id="increaseprogress" value="Kiddan vi?"/>-->
                     
                 </div>
                 
@@ -35,7 +40,53 @@
         <script>
             
            
-        
+        $(document).on("keyup", function(e) {
+            
+//            var p = $("p:last");
+            var code = e.which;
+            var bar = $('#progressbar');
+            var presentvalue = bar.val();
+            var bartop = bar.offset().top;
+            //bar.val(60);            
+            var scrolltext = $('.scroll-down-text');
+            var top1 = scrolltext.offset().top;
+            var dif = $(document).height() - $(window).height();
+            
+            var wh = $(window).height(); 
+//             p.html(wh + '% ||  dif: ' + dif);
+            
+            if (code == 40) { 
+                bar.animate({ value: "+=20" }, 1000);
+                if (top1 + 0.2*wh < wh - 40){
+                    scrolltext.animate({top: top1 + 0.2*wh - 7}, 1000);
+                }
+                else{
+                    scrolltext.animate({top: wh - 40}, 1000);
+                }
+                if (top1 + 0.2*wh > .9*wh){
+                    scrolltext.delay(0).queue( function(next){ 
+                        $(this).css({color:'#f2f2f2'}); 
+                        next(); 
+                      });
+                }
+
+            } else if (code == 38) {
+                bar.animate({ value: "+=30" }, 1000);
+                if (top1 + 0.3*wh < wh - 40){
+                    scrolltext.animate({top: top1 + 0.3*wh - 7}, 1000);
+                }
+                else{
+                    scrolltext.animate({top: wh - 40}, 1000);
+                }
+                if (top1 + 0.3*wh > .9*wh){
+                    scrolltext.delay(0).queue( function(next){ 
+                        $(this).css({color:'#f2f2f2'}); 
+                        next(); 
+                      });
+                }
+            }
+        });
+            
             
         //progress bar increases on button click
         $('#increaseprogress').click(function(){
@@ -54,7 +105,7 @@
             var wh = $(window).height(); 
             p.html(wh + '%');
             if (top1 + 0.2*wh -5 < wh){
-                scrolltext.animate({top: top1 + 0.2*wh - 8}, 1000);
+                scrolltext.animate({top: top1 + 0.2*wh + 8}, 1000);
             }
             if (top1 + 0.2*wh -5 > .8*wh){
                 scrolltext.delay(0).queue( function(next){ 
@@ -84,6 +135,13 @@
 //                scrolltext.css({top:20});
 //            }
 //        })
+        
+        var birdie = $('#bird');
+        var flag = false;
+        setInterval(function(){
+            birdie.attr('src', 'Extras/Bird' + (flag ? 1 : 2) + '.png');
+            flag = !flag;
+        }, 800);
 
 
         </script>
