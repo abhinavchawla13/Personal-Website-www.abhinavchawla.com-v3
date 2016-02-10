@@ -10,6 +10,7 @@
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <script src="Extras/jquery.easing.1.3.js"></script>
     </head>
     <body>
         <div class="container">
@@ -22,9 +23,9 @@
                 <div class="col-6 right-side">
                     <img id="tree_branch" src="Extras/tree_branch.png"/>
                     <img id="bird" src="Extras/Bird1.png"/>
-                    <img id="apple1" src="Extras/apple11.png"/>
-                    <img id="apple2" src="Extras/apple21.png"/>
-                    <img id="apple3" src="Extras/apple31.png"/>
+                    <img class="apple1" src="Extras/apple11.png"/>
+                    <img class="apple2" src="Extras/apple21.png"/>
+                    <img class="apple3" src="Extras/apple31.png"/>
 <!--                    <p>hell</p>-->
 <!--
                     <div id="message">
@@ -42,7 +43,12 @@
         </div>
         <script>
             
-         $('#apple1').click(function(){
+        $(document).ready ( function(){
+            applie();
+        });
+
+         $('.apple1').click(function(){
+           
             var bar = $('#progressbar');
             var presentvalue = bar.val();
             var bartop = bar.offset().top;
@@ -51,21 +57,32 @@
             var top1 = scrolltext.offset().top;
             var wh = $(window).height();
             bar.animate({ value: "+=20" }, 1000);
-                if (top1 + 0.2*wh < wh - 40){
-                    scrolltext.animate({top: top1 + 0.2*wh - 7}, 1000);
-                }
-                else{
-                    scrolltext.animate({top: wh - 40}, 1000);
-                }
-                if (top1 + 0.2*wh > .9*wh){
-                    scrolltext.delay(0).queue( function(next){ 
-                        $(this).css({color:'#f2f2f2'}); 
-                        next(); 
-                      });
-                }
+            
+            var apple1 = $('.apple1');
+            apple1.animate({ top: wh - 140 }, 1200, 'easeInQuad', function(){
+                apple1.css({visibility: 'collapse'}); 
+                $('.right-side').delay(1000).queue(function(){
+                   $('.right-side').prepend('<img class="apple1" src ="Extras/apple11.png"/>');
+                    applie();
+                })
+            });
+             
+            if (top1 + 0.2*wh < wh - 40){
+                scrolltext.animate({top: top1 + 0.2*wh - 7}, 1000);
+            }
+            else{
+                scrolltext.animate({top: wh - 40}, 1000);
+            }
+            if (top1 + 0.2*wh > .9*wh){
+                scrolltext.delay(0).queue( function(next){ 
+                    $(this).css({color:'#f2f2f2'}); 
+                    next(); 
+                  });
+            }
          })
          
-        $('#apple2').click(function(){
+        $('.apple2').click(function(){
+           
             var bar = $('#progressbar');
             var presentvalue = bar.val();
             var bartop = bar.offset().top;
@@ -74,21 +91,33 @@
             var top1 = scrolltext.offset().top;
             var wh = $(window).height();
             bar.animate({ value: "+=30" }, 1000);
-                if (top1 + 0.3*wh < wh - 40){
-                    scrolltext.animate({top: top1 + 0.3*wh - 7}, 1000);
-                }
-                else{
-                    scrolltext.animate({top: wh - 40}, 1000);
-                }
-                if (top1 + 0.3*wh > .9*wh){
-                    scrolltext.delay(0).queue( function(next){ 
-                        $(this).css({color:'#f2f2f2'}); 
-                        next(); 
-                      });
-                }
+            
+            
+            var apple2 = $('.apple2');
+            apple2.animate({ top: wh - 140 }, 1200, 'easeInQuad', function(){
+                apple2.css({visibility: 'collapse'});
+                $('.right-side').delay(1000).queue(function(){
+                   $('.right-side').append('<img class="apple2" src ="Extras/apple21.png"/>');
+                    applie();
+                })
+            });
+             
+            
+            if (top1 + 0.3*wh < wh - 40){
+                scrolltext.animate({top: top1 + 0.3*wh - 7}, 1000);
+            }
+            else{
+                scrolltext.animate({top: wh - 40}, 1000);
+            }
+            if (top1 + 0.3*wh > .9*wh){
+                scrolltext.delay(0).queue( function(next){ 
+                    $(this).css({color:'#f2f2f2'}); 
+                    next(); 
+                  });
+            }
          })
         
-         $('#apple3').click(function(){
+         $('.apple3').click(function(){
             var bar = $('#progressbar');
             var presentvalue = bar.val();
             var bartop = bar.offset().top;
@@ -97,18 +126,29 @@
             var top1 = scrolltext.offset().top;
             var wh = $(window).height();
             bar.animate({ value: "+=40" }, 1000);
-                if (top1 + 0.4*wh < wh - 40){
-                    scrolltext.animate({top: top1 + 0.4*wh - 7}, 1000);
-                }
-                else{
-                    scrolltext.animate({top: wh - 40}, 1000);
-                }
-                if (top1 + 0.4*wh > .9*wh){
-                    scrolltext.delay(0).queue( function(next){ 
-                        $(this).css({color:'#f2f2f2'}); 
-                        next(); 
-                      });
-                }
+             
+             
+            var apple3 = $('.apple3');
+            apple3.animate({ top: wh - 140 }, 1200, 'easeInQuad', function(){
+                apple3.css({visibility: 'collapse'});
+                $('.right-side').delay(1000).queue(function(){
+                   $('.right-side').prepend('<img class="apple3" src ="Extras/apple31.png"/>');
+                    applie();
+                })
+            });
+             
+            if (top1 + 0.4*wh < wh - 40){
+                scrolltext.animate({top: top1 + 0.4*wh - 7}, 1000);
+            }
+            else{
+                scrolltext.animate({top: wh - 40}, 1000);
+            }
+            if (top1 + 0.4*wh > .9*wh){
+                scrolltext.delay(0).queue( function(next){ 
+                    $(this).css({color:'#f2f2f2'}); 
+                    next(); 
+                  });
+            }
          })
             
            
@@ -207,33 +247,35 @@
 //                scrolltext.css({top:20});
 //            }
 //        })
-        var apple1 = $('#apple1');
-        var apple2 = $('#apple2');
-        var apple3 = $('#apple3');
-        var flag1 = false;
-        setInterval(function(){
-            apple1.attr('src', 'Extras/apple1' + (flag1 ? 1 : 2) + '.png');
-            apple2.attr('src', 'Extras/apple2' + (flag1 ? 1 : 2) + '.png');
-            apple3.attr('src', 'Extras/apple3' + (flag1 ? 1 : 2) + '.png');
-            flag1 = !flag1;
-            if (flag1){
-                apple1.css({opacity: 0.85});
-                apple2.css({opacity: 0.85});
-                apple3.css({opacity: 0.85});
-            }
-            else{
-                apple1.css({opacity: 1});
-                apple2.css({opacity: 1});
-                apple3.css({opacity: 1});
-            }
-        }, 800);
+        function applie(){
+            var apple1 = $('.apple1');
+            var apple2 = $('.apple2');
+            var apple3 = $('.apple3');
+            var flag1 = false;
+            setInterval(function(){
+                apple1.attr('src', 'Extras/apple1' + (flag1 ? 1 : 2) + '.png');
+                apple2.attr('src', 'Extras/apple2' + (flag1 ? 1 : 2) + '.png');
+                apple3.attr('src', 'Extras/apple3' + (flag1 ? 1 : 2) + '.png');
+                flag1 = !flag1;
+    //            if (flag1){
+    //                apple1.css({opacity: 0.85});
+    //                apple2.css({opacity: 0.85});
+    //                apple3.css({opacity: 0.85});
+    //            }
+    //            else{
+    //                apple1.css({opacity: 1});
+    //                apple2.css({opacity: 1});
+    //                apple3.css({opacity: 1});
+    //            }
+            }, 800);
+        }
             
         var birdie = $('#bird');
         var flag = false;
         setInterval(function(){
             birdie.attr('src', 'Extras/Bird' + (flag ? 1 : 2) + '.png');
             flag = !flag;
-        }, 800);
+        }, 350);
         
        
 

@@ -119,35 +119,35 @@ progress::-moz-progress-bar {
     
 }
 
-#apple1 {
+.apple1 {
     width:80px;
     right:470px;
     top: 103px;
     position: absolute;
 }
 
-#apple3 {
+.apple3 {
     width: 80px;
     right:250px;
     top: 145px;
     position: absolute;
 }
 
-#apple2 {
+.apple2 {
     width: 80px;
     right: 45px;
     top: 155px;
     position: absolute;
 }
 
-#apple1:hover {
+.apple1:hover {
     cursor:pointer;
 }
 
-#apple2:hover {
+.apple2:hover {
     cursor:pointer;
 }
 
-#apple3:hover {
+.apple3:hover {
     cursor:pointer;
 }
