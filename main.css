@@ -66,35 +66,35 @@ body {
     z-index: 10;
     padding: 10px;
     height: 40px;
-    font-family: 'Josefin Slab', serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 23px;
 }
 
 
 progress {
-    background-color: #f3f3f3;
+    background-color: #cfcfcf;
     border: 0;
     height: inherit;
 }
 progress::-webkit-progress-bar {
-    background-color: #f3f3f3;
+    background-color: #cfcfcf;
     border: 0;
     height: inherit;
 }
 progress::-webkit-progress-value {
-    background-color: #555;
+    background-color: #c2272d;
     border: 0;
     height: inherit;
 }
 progress::-moz-progress-bar {
-    background-color: #555;
+    background-color: #c2272d;
     border: 0;
     height: inherit;
 }
 
 
 #progressbar {
-    height: 40px;
+    height: 50px;
     width: 100%;
     position: absolute;
     bottom: 0px;
@@ -150,4 +150,40 @@ progress::-moz-progress-bar {
 
 .apple3:hover {
     cursor:pointer;
+}
+
+.apple4:hover {
+    cursor:pointer;
+}
+
+.apple5:hover {
+    cursor:pointer;
+}
+
+.apple5 {
+    width:80px;
+    right:356px;
+    top: 110px;
+    position: absolute;
+}
+
+.apple4 {
+    width:80px;
+    right:149px;
+    top: 117px;
+    position: absolute;
+}
+
+.basket1 {
+    width: 300px;
+    right: 300px;
+    bottom: 60px;
+    position:absolute;
+}
+
+.basket2 {
+    width: 400px;
+    right: 10px;
+    bottom: 60px;
+    position:absolute;
 }
