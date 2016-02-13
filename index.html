@@ -31,7 +31,7 @@
                     <img class="apple4" src="Extras/apple41.png"/>
                     <img class="apple5" src="Extras/apple51.png"/>
                     <img class="basket1" src="Extras/basket.png"/>
-                    <img class="basket2" src="Extras/basket.png"/>
+                    <img class="basket2" src="Extras/basket2.png"/>
                     
 <!--                    <p>hell</p>-->
 <!--
@@ -85,9 +85,7 @@
                     apple1.animate({ top: wh - 205 }, 1200, 'easeInQuad', function(){
 //                        apple1.css({visibility: 'collapse'}); 
                         if (!flaga5){
-                            $('.basket1').delay(0).queue(function(next){
-                                $(this).attr('src', 'Extras/basket_a1_f.png');
-                            })
+                            $('.basket1').attr('src', 'Extras/basket_a1_f.png');
                         }
                         else{
                              $('.basket1').attr('src', 'Extras/basket_a1_a5.png');
@@ -95,13 +93,6 @@
                         }
                     flaga1 = true;
                     apple1.remove();
-                        
-                    
-    //                    $('.right-side').delay(1000).queue(function(){
-    //                       $('.right-side').append('<img class="apple1" src ="Extras/apple11.png"/>');
-    //                        applie();
-    //                        apple1drop();
-    //                    })
                     });
                     
                     
@@ -131,27 +122,31 @@
                 var bar = $('#progressbar');
                 var presentvalue = bar.val();
                 if (presentvalue < 100){
-                    var bartop = bar.offset().top;
-                    //bar.val(60);            
+                    var bartop = bar.offset().top;           
                     var scrolltext = $('.scroll-down-text');
                     var top1 = scrolltext.offset().top;
                     var wh = $(window).height();
                     bar.animate({ value: "+=30" }, 1000);
 
-
                     var apple2 = $('.apple2');
-                    apple2.animate({ top: wh - 140 }, 1200, 'easeInQuad', function(){
-    //                    apple2.css({visibility: 'collapse'});
-                        
+                    apple2.animate({ top: wh - 250 }, 1200, 'easeInQuad', function(){
+                        if (!flaga3 && !flaga4){
+                            $('.basket2').attr('src', 'Extras/basket_a2.png');
+                        }
+                        else if (flaga3 && !flaga4){
+                            $('.basket2').attr('src', 'Extras/basket_a3_a2.png');
+                        }
+                        else if (!flaga3 && flaga4){
+                            $('.basket2').attr('src', 'Extras/basket_a4_a2.png');
+                        }
+                        else{
+                            $('.basket2').attr('src', 'Extras/basket_a3_a4_a2.png');
+                        }
                         apple2.remove();
-    //                    $('.right-side').delay(1000).queue(function(){
-    //                       $('.right-side').append('<img class="apple2" src ="Extras/apple21.png"/>');
-    //                        applie();
-    //                        apple2drop();
-    //                    })
                     });
-
-
+                    
+                    flaga2 = true;
+                    
                     if (top1 + 0.3*wh < wh - 40){
                         scrolltext.animate({top: top1 + 0.3*wh - 7}, 1000);
                     }
@@ -174,7 +169,6 @@
                 var presentvalue = bar.val();
                 if (presentvalue < 100){
                     var bartop = bar.offset().top;
-                    //bar.val(60);            
                     var scrolltext = $('.scroll-down-text');
                     var top1 = scrolltext.offset().top;
                     var wh = $(window).height();
@@ -182,28 +176,25 @@
 
 
                     var apple3 = $('.apple3');
-                    apple3.animate({ top: wh - 140 }, 1200, 'easeInQuad', function(){
-    //                    apple3.css({visibility: 'collapse'});
-//                        if (true){
-//                            $('.basket1').delay(0).queue(function(next){
-//                                $(this).attr('src', 'Extras/basket_a3_f.png')
-//                            })
-//                        }
-//                        else{
-//                             $('.basket1').delay(0).queue(function(next){
-//                            $(this).attr('src', 'Extras/basket_a1_a3.png')
-//                             })
-//                        }
+                    apple3.animate({ top: wh - 250 }, 1200, 'easeInQuad', function(){
+                        apple3.css({visibility: 'collapse'});
+                        if (!flaga4 && !flaga2){
+                           $('.basket2').attr('src', 'Extras/basket_a3.png');
+                        }
+                        else if (flaga4 && !flaga2){
+                            $('.basket2').attr('src', 'Extras/basket_a3_a4.png');
+                        }
+                        else if (!flaga4 && flaga2){
+                           $('.basket2').attr('src', 'Extras/basket_a3_a2.png');
+                        }
+                        else{
+                            $('.basket2').attr('src', 'Extras/basket_a3_a4_a2.png');
+                        }
                         apple3.remove();
-//                        flaga3 = true;
-    //                    $('.right-side').delay(1000).queue(function(){
-    //                        $('<img class="apple3" src ="Extras/apple31.png" css="top:0!important"/>').appendTo($('.right-side'));
-    ////                        $('.right-side').add('<img class="apple3" src ="Extras/apple31.png"/>');
-    ////                       $('.right-side').append('<img class="apple3" src ="Extras/apple31.png"/>');
-    //                        applie();
-    //                        apple3drop();
-    //                    })
+                        
                     });
+                    
+                    flaga3 = true;
 
                     if (top1 + 0.4*wh < wh - 40){
                         scrolltext.animate({top: top1 + 0.4*wh - 7}, 1000);
@@ -235,15 +226,24 @@
                     bar.animate({ value: "+=20" }, 1000);
 
                     var apple4 = $('.apple4');
-                    apple4.animate({ top: wh - 140 }, 1200, 'easeInQuad', function(){
-    //                    apple1.css({visibility: 'collapse'}); 
+                    apple4.animate({ top: wh - 250 }, 1200, 'easeInQuad', function(){
+                        if (!flaga3 && !flaga2){
+                           $('.basket2').attr('src', 'Extras/basket_a4.png');
+                        }                        
+                        else if (flaga3 && !flaga2){
+                            $('.basket2').attr('src', 'Extras/basket_a3_a4.png');
+                        }
+                        else if (!flaga3 && flaga2){
+                           $('.basket2').attr('src', 'Extras/basket_a4_a2.png');
+                        }
+                        else{
+                           $('.basket2').attr('src', 'Extras/basket_a3_a4_a2.png');
+                        }
                         apple4.remove();
-    //                    $('.right-side').delay(1000).queue(function(){
-    //                       $('.right-side').append('<img class="apple4" src ="Extras/apple41.png"/>');
-    //                        applie();
-    //                        apple4drop();
-    //                    })
                     });
+                    
+                    flaga4 = true;
+
 
                     if (top1 + 0.2*wh < wh - 40){
                         scrolltext.animate({top: top1 + 0.2*wh - 7}, 1000);
@@ -275,7 +275,7 @@
                     bar.animate({ value: "+=30" }, 1000);
 
                     var apple5 = $('.apple5');
-                    apple5.animate({ top: wh - 205 }, 1200, 'easeInQuad', function(){
+                    apple5.animate({ top: wh - 200 }, 1200, 'easeInQuad', function(){
                         if (!flaga1){
                             $('.basket1').delay(0).queue(function(next){
                                 $(this).attr('src', 'Extras/basket_a5_f.png');
@@ -284,14 +284,9 @@
                         else{
                              $('.basket1').attr('src', 'Extras/basket_a1_a5.png');
                         }
+                        
                         flaga5 = true;
-    //                    apple1.css({visibility: 'collapse'}); 
                         apple5.remove();
-    //                    $('.right-side').delay(1000).queue(function(){
-    //                       $('.right-side').append('<img class="apple4" src ="Extras/apple41.png"/>');
-    //                        applie();
-    //                        apple4drop();
-    //                    })
                     });
 
                     if (top1 + 0.3*wh < wh - 40){
@@ -309,53 +304,7 @@
                  }
              })
         }
-//        $(document).on("keyup", function(e) {
-//            
-////            var p = $("p:last");
-//            var code = e.which;
-//            var bar = $('#progressbar');
-//            var presentvalue = bar.val();
-//            var bartop = bar.offset().top;
-//            //bar.val(60);            
-//            var scrolltext = $('.scroll-down-text');
-//            var top1 = scrolltext.offset().top;
-//            var dif = $(document).height() - $(window).height();
-//            
-//            var wh = $(window).height(); 
-////             p.html(wh + '% ||  dif: ' + dif);
-//            
-//            if (code == 40) { 
-//                bar.animate({ value: "+=20" }, 1000);
-//                if (top1 + 0.2*wh < wh - 40){
-//                    scrolltext.animate({top: top1 + 0.2*wh - 7}, 1000);
-//                }
-//                else{
-//                    scrolltext.animate({top: wh - 40}, 1000);
-//                }
-//                if (top1 + 0.2*wh > .9*wh){
-//                    scrolltext.delay(0).queue( function(next){ 
-//                        $(this).css({color:'#f2f2f2'}); 
-//                        next(); 
-//                      });
-//                }
-//
-//            } else if (code == 38) {
-//                bar.animate({ value: "+=30" }, 1000);
-//                if (top1 + 0.3*wh < wh - 40){
-//                    scrolltext.animate({top: top1 + 0.3*wh - 7}, 1000);
-//                }
-//                else{
-//                    scrolltext.animate({top: wh - 40}, 1000);
-//                }
-//                if (top1 + 0.3*wh > .9*wh){
-//                    scrolltext.delay(0).queue( function(next){ 
-//                        $(this).css({color:'#f2f2f2'}); 
-//                        next(); 
-//                      });
-//                }
-//            }
-//        });
-//            
+
             
         //progress bar increases on button click
         $('#increaseprogress').click(function(){
