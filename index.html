@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-6 left-side">
-                    <div class="scroll-down-text">Abhinav Chawla
+                    <div class="scroll-down-text">ABHINAV CHAWLA
                     </div>
                 </div>
                 
@@ -46,6 +46,7 @@
                 
             </div>
             <progress id="progressbar" value="00" max="100"></progress>
+            <a class='resumelink' href="http://www.abhinavchawla.com" target="_blank">RESUME</a>
            
         </div>
         <script>
@@ -103,15 +104,15 @@
                     else{
                         scrolltext.animate({top: wh - 44}, 1000);
                     }
-                    if (top1 + 0.1*wh > .9*wh){
-                        ispossible = false;
+                    if (top1 + 0.3*wh > .9*wh){
                         scrolltext.delay(0).queue( function(next){ 
-                            $(this).css({color:'#f2f2f2'}); 
+                            $(this).attr('class', 'changefont');
+                            $('.resumelink').fadeIn("slow");
                             next(); 
                           });
                     }
-                }
-                
+                    
+                }                
                 
              })
         }
@@ -151,11 +152,12 @@
                         scrolltext.animate({top: top1 + 0.3*wh - 7}, 1000);
                     }
                     else{
-                        scrolltext.animate({top: wh - 36}, 1000);
+                        scrolltext.animate({top: wh - 52}, 1000);
                     }
                     if (top1 + 0.3*wh > .9*wh){
                         scrolltext.delay(0).queue( function(next){ 
-                            $(this).css({color:'#f2f2f2'}); 
+                            $(this).attr('class', 'changefont');
+                            $('.resumelink').fadeIn("slow");
                             next(); 
                           });
                     }
@@ -202,9 +204,10 @@
                     else{
                         scrolltext.animate({top: wh - 44}, 1000);
                     }
-                    if (top1 + 0.4*wh > .9*wh){
+                    if (top1 + 0.3*wh > .9*wh){
                         scrolltext.delay(0).queue( function(next){ 
-                            $(this).css({color:'#f2f2f2'}); 
+                            $(this).attr('class', 'changefont');
+                            $('.resumelink').fadeIn("slow");
                             next(); 
                           });
                     }
@@ -251,10 +254,12 @@
                     else{
                         scrolltext.animate({top: wh - 44}, 1000);
                     }
-                    if (top1 + 0.2*wh > .9*wh){
+                    if (top1 + 0.3*wh > .9*wh){
                         scrolltext.delay(0).queue( function(next){ 
-                            $(this).css({color:'#f2f2f2'}); 
-                            next(); 
+                            $(this).attr('class', 'changefont');
+                            next();
+                            $('.resumelink').fadeIn("slow");
+
                           });
                     }
                  }
@@ -297,10 +302,12 @@
                     }
                     if (top1 + 0.3*wh > .9*wh){
                         scrolltext.delay(0).queue( function(next){ 
-                            $(this).css({color:'#f2f2f2'}); 
+                            $(this).attr('class', 'changefont');
+                            $('.resumelink').fadeIn("slow");
                             next(); 
                           });
                     }
+                    
                  }
              })
         }

@@ -1,3 +1,12 @@
+@font-face{
+    font-family:'Nexa Light';
+    src:url('Extras/Nexa Light.otf') format('opentype');
+}
+
+@font-face{
+    font-family:'Nexa Bold';
+    src:url('Extras/Nexa Bold.otf') format('opentype');
+}
 
 .left-side {
     height: 100%;
@@ -66,10 +75,32 @@ body {
     z-index: 10;
     padding: 10px;
     height: 40px;
-    font-family: 'Montserrat', sans-serif;
-    line-height: 23px;
+    font-family: 'Nexa Light', sans-serif;
+    font-size: 36px;
 }
 
+.changefont{
+    position: fixed;
+    z-index: 10;
+    font-size:30px;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 10px;
+    height: 40px;
+    font-family: 'Nexa Light', sans-serif;
+    -webkit-transition: font-size .5s ease, color .3s ease;
+	-moz-transition: font-size color .5s ease, color .3s ease;
+	-ms-transition: font-size color .5s ease, color .3s ease;
+	-o-transition: font-size color .5s ease, color .3s ease;
+	transition: font-size color .5s ease, color .3s ease;
+/*
+    -webkit-transition: color 1s ease;
+	-moz-transition: color 1s ease;
+	-ms-transition: color 1s ease;
+	-o-transition: color 1s ease;
+	transition: color 1s ease;
+*/
+}
 
 progress {
     background-color: #cfcfcf;
@@ -186,4 +217,20 @@ progress::-moz-progress-bar {
     right: 10px;
     bottom: 60px;
     position:absolute;
+}
+
+
+.resumelink {
+    display: none;
+    position: fixed;
+    bottom: 13px;
+    right: 20px;
+    font-size:30px;
+    color: #ffffff;
+    font-weight: 900;
+    padding: 10px;
+    height: 40px;
+    font-family: 'Nexa Light', sans-serif;
+    margin: 0px;
+    text-decoration: none;
 }
